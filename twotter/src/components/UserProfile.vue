@@ -62,8 +62,7 @@ export default {
 		isAdmin: true,
 		twoots: [
 			{id: 1, content: 'Twotter is amazing!'},
-			{id: 2, content: 'Follow @_HH'},
-			{id: 3, content: 'Twotter go BRRRRR'}
+			{id: 2, content: 'Follow @_HH'}
 		]
 		}
 	}
@@ -105,7 +104,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .user-profile{
 	display: grid;
 	grid-template-columns: 1fr 3fr;
@@ -141,8 +140,16 @@ export default {
 	flex-direction: column;
 }
 
+.user-profile__create-twoot button{
+	margin-top: 10px;
+}
+
 .user-profile__create-twoot label{
 	font-weight: bold;
+}
+
+.user-profile__create-twoot-type{
+	margin-top: 10px;
 }
 
 h1{
