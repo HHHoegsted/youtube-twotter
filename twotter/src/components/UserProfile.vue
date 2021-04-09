@@ -10,7 +10,13 @@
 			</div>
 		</div>
 		<div class="user-profile__twoots-wrapper">
-			<TwootItem v-for="twoot in user.twoots" :key="twoot.id" :username="user.username" :twoot="twoot" @favourite="toggleFavourite(twoot.id)"/>
+			<TwootItem 
+				v-for="twoot in user.twoots" 
+				:key="twoot.id" 
+				:username="user.username" 
+				:twoot="twoot" 
+				@favourite="toggleFavourite(twoot.id)"
+			/>
 		</div>
 	</div>
 </template>
