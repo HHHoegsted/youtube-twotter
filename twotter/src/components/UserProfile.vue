@@ -10,14 +10,15 @@
 			</div>
 		</div>
 		<div class="user-profile__twoots-wrapper">
-			<div class="user-profile__twoot" v-for="twoot in user.twoots" :key="twoot.id">
-				{{ twoot.content }}
-			</div>
+			<TwootItem v-for="twoot in user.twoots" :key="twoot.id" :username="user.username" :twoot="twoot" @favourite="toggleFavourite(twoot.id)"/>
 		</div>
 	</div>
 </template>
 
 <script>
+
+import TwootItem from "./TwootItem";
+
 export default {
 	name: 'UserProfile',
 	data(){
@@ -41,6 +42,9 @@ export default {
 	methods:{
 	followUser(){
 		this.followers++;
+	},
+	toggleFavourite(id){
+		console.log(`Favourited Twoot #${id}`)
 	}
 	},
 	computed:{
@@ -51,11 +55,14 @@ export default {
 	mounted(){
 	},
 	watch: {
-	followers(newFollowerCount, oldFollowerCount){
-		if(oldFollowerCount < newFollowerCount){
-		console.log(`${this.user.username} has gained a follower!`);
+		followers(newFollowerCount, oldFollowerCount){
+			if(oldFollowerCount < newFollowerCount){
+			console.log(`${this.user.username} has gained a follower!`);
+			}
 		}
-	}
+	},
+	components:{
+		TwootItem
 	}
 }
 </script>
